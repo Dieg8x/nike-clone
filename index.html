@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2665.8">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Velocity - Just Stride.&lt;/title&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Tailwind CSS CDN --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Google Fonts: Inter --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Custom Styles --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'Inter', sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>html { scroll-behavior: smooth; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar { width: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-track { background: #f1f1f1; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb:hover { background: #555; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-open { overflow: hidden; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal, #user-dropdown, .toast { transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.product-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.filter-btn-active { background-color: #111827; color: white; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tab-btn-active { border-color: #111827; font-weight: 600; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.wishlist-btn-active svg { fill: #ef4444; color: #ef4444; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes toast-in { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes toast-out { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-100%); opacity: 0; } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toast.show { animation: toast-in 0.5s forwards; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toast.hide { animation: toast-out 0.5s forwards; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-white text-gray-800"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- =========== HEADER / NAVIGATION =========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="container mx-auto px-4 sm:px-6 lg:px-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center justify-between h-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex-shrink-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#" class="text-2xl font-black text-gray-900" onclick="window.location.reload()"&gt;VELOCITY&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="hidden md:flex flex-grow max-w-xl mx-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative w-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="search" id="search-bar" placeholder="Buscar productos..." class="w-full bg-gray-100 border border-transparent rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:bg-white"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center space-x-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button id="user-icon-btn" class="p-2 rounded-full text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="user-dropdown" class="hidden absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 z-50 origin-top-right ring-1 ring-black ring-opacity-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="px-4 py-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm font-semibold text-gray-900" id="dropdown-user-name"&gt;Alex Doe&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-gray-500 truncate" id="dropdown-user-email"&gt;alex.doe@example.com&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="border-t border-gray-100"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="px-4 py-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-xs text-gray-500"&gt;Velocity Rewards&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-lg font-bold text-gray-900"&gt;&lt;span id="dropdown-user-points"&gt;1,500&lt;/span&gt; Puntos&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="border-t border-gray-100"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button id="my-account-btn" class="w-full text-left flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span&gt;Mi Cuenta&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;svg id="account-arrow" class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div id="my-account-submenu" class="hidden bg-gray-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;a href="#" class="block pl-8 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-100" data-modal="orders-modal"&gt;Mis Pedidos&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;a href="#" class="block pl-8 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-100" data-modal="addresses-modal"&gt;Direcciones&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;a href="#" class="block pl-8 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-100" data-modal="password-modal"&gt;Cambiar Contraseña&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="border-t border-gray-100"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;a href="#" id="logout-btn" class="block w-full text-left px-4 py-2 text-sm text-red-600 font-semibold hover:bg-gray-100"&gt;Cerrar Sesión&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button id="open-wishlist-btn" class="relative p-2 rounded-full text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.5l1.318-1.182a4.5 4.5 0 116.364 6.364L12 21.086l-7.682-7.182a4.5 4.5 0 010-6.364z" /&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span id="wishlist-counter" class="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-gray-900 rounded-full"&gt;0&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button id="open-cart-btn" class="relative p-2 rounded-full text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span id="cart-counter" class="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-gray-900 rounded-full"&gt;0&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- =========== MAIN CONTENT =========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="hero-section" class="bg-gray-900 rounded-lg shadow-xl overflow-hidden mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="relative h-96 sm:h-[450px] lg:h-[500px]"&gt;&lt;img src="https://placehold.co/1200x500/000000/FFFFFF?text=Estilo+en+Movimiento" onerror="this.onerror=null;this.src='https://placehold.co/1200x500/000000/FFFFFF?text=Imagen+no+disponible';" class="w-full h-full object-cover" alt="Atleta en movimiento"&gt;&lt;div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center"&gt;&lt;div class="text-center text-white p-4"&gt;&lt;h1 class="text-4xl sm:text-5xl lg:text-6xl font-black uppercase drop-shadow-lg"&gt;Just Stride.&lt;/h1&gt;&lt;p class="mt-4 max-w-xl mx-auto text-lg sm:text-xl"&gt;Encuentra el equipo perfecto que se adapta a tu ritmo. Innovación y estilo en cada paso.&lt;/p&gt;&lt;a href="#products-news" class="mt-8 inline-block bg-white text-gray-900 font-bold py-3 px-8 rounded-full uppercase tracking-wider hover:bg-gray-200 transition-colors"&gt;Explorar Colección&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="filters-section" class="mb-12 p-4 bg-gray-50 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-2 md:grid-cols-4 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;&lt;label for="sort-by" class="block text-sm font-medium text-gray-700"&gt;Ordenar por&lt;/label&gt;&lt;select id="sort-by" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-gray-800 focus:border-gray-800 sm:text-sm rounded-md"&gt;&lt;option value="default"&gt;Relevancia&lt;/option&gt;&lt;option value="price-asc"&gt;Precio: Menor a Mayor&lt;/option&gt;&lt;option value="price-desc"&gt;Precio: Mayor a Menor&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;&lt;label class="block text-sm font-medium text-gray-700"&gt;Categoría&lt;/label&gt;&lt;div class="mt-2 space-x-2"&gt;&lt;button class="filter-btn px-3 py-1 border border-gray-300 rounded-full text-sm" data-filter="category" data-value="all"&gt;Todos&lt;/button&gt;&lt;button class="filter-btn px-3 py-1 border border-gray-300 rounded-full text-sm" data-filter="category" data-value="Hombre"&gt;Hombre&lt;/button&gt;&lt;button class="filter-btn px-3 py-1 border border-gray-300 rounded-full text-sm" data-filter="category" data-value="Mujer"&gt;Mujer&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="col-span-2 md:col-span-1"&gt;&lt;label class="block text-sm font-medium text-gray-700"&gt;Otras opciones&lt;/label&gt;&lt;div class="mt-2"&gt;&lt;button class="filter-btn px-3 py-1 border border-gray-300 rounded-full text-sm" data-filter="sale" data-value="true"&gt;Sólo ofertas&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;&lt;label class="block text-sm font-medium text-gray-700 opacity-0"&gt;Reset&lt;/label&gt;&lt;div class="mt-2"&gt;&lt;button id="reset-filters" class="w-full px-3 py-1 bg-white border border-gray-300 rounded-full text-sm text-gray-700 hover:bg-gray-100"&gt;Limpiar filtros&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="search-results-section" class="hidden mb-16"&gt;&lt;h2 id="search-results-title" class="text-3xl font-bold text-gray-900 mb-8"&gt;Resultados&lt;/h2&gt;&lt;div id="search-results-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"&gt;&lt;/div&gt;&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="original-sections"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="products-news" class="mb-16 scroll-mt-20"&gt;&lt;h2 class="text-3xl font-bold text-gray-900 mb-8"&gt;Novedades&lt;/h2&gt;&lt;div id="product-grid-news" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"&gt;&lt;/div&gt;&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="products-men" class="mb-16 scroll-mt-20"&gt;&lt;h2 class="text-3xl font-bold text-gray-900 mb-8"&gt;Hombre&lt;/h2&gt;&lt;div id="product-grid-men" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"&gt;&lt;/div&gt;&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="products-women" class="mb-16 scroll-mt-20"&gt;&lt;h2 class="text-3xl font-bold text-gray-900 mb-8"&gt;Mujer&lt;/h2&gt;&lt;div id="product-grid-women" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"&gt;&lt;/div&gt;&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="products-sale" class="mb-16 scroll-mt-20"&gt;&lt;h2 class="text-3xl font-bold text-red-600 mb-8"&gt;Ofertas&lt;/h2&gt;&lt;div id="product-grid-sale" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"&gt;&lt;/div&gt;&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- =========== FOOTER =========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="bg-gray-900 text-white mt-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Footer content is static and correct --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- =========== TOAST CONTAINER =========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="toast-container" class="fixed top-5 right-5 z-50 space-y-3"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- =========== MODALS =========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="auth-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-white rounded-lg shadow-2xl w-full max-w-md relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800" data-modal="auth-modal"&gt;&lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /&gt;&lt;/svg&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="border-b border-gray-200"&gt;&lt;nav class="-mb-px flex" aria-label="Tabs"&gt;&lt;button id="login-tab-btn" class="tab-btn-active w-1/2 py-4 px-1 text-center border-b-2 font-medium text-sm"&gt;Iniciar Sesión&lt;/button&gt;&lt;button id="register-tab-btn" class="text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 py-4 px-1 text-center border-b-2 font-medium text-sm"&gt;Registrarse&lt;/button&gt;&lt;/nav&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="login-tab-content" class="p-8"&gt;&lt;form id="login-form"&gt;&lt;div id="login-error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert"&gt;&lt;/div&gt;&lt;div class="mb-4"&gt;&lt;label for="login-email" class="block text-sm font-medium text-gray-700 mb-1"&gt;Email&lt;/label&gt;&lt;input type="email" name="email" id="login-email" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-800" placeholder="usuario@correo.com" required&gt;&lt;/div&gt;&lt;div class="mb-6"&gt;&lt;label for="login-password" class="block text-sm font-medium text-gray-700 mb-1"&gt;Contraseña&lt;/label&gt;&lt;input type="password" name="password" id="login-password" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-800" placeholder="password123" required&gt;&lt;/div&gt;&lt;button type="submit" class="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-gray-800"&gt;Iniciar Sesión&lt;/button&gt;&lt;/form&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="register-tab-content" class="hidden p-8"&gt;&lt;form id="register-form"&gt;&lt;div id="register-error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert"&gt;&lt;/div&gt;&lt;div class="mb-4"&gt;&lt;label for="register-name" class="block text-sm font-medium text-gray-700 mb-1"&gt;Nombre&lt;/label&gt;&lt;input type="text" name="name" id="register-name" class="w-full p-2 border border-gray-300 rounded-md" required&gt;&lt;/div&gt;&lt;div class="mb-4"&gt;&lt;label for="register-email" class="block text-sm font-medium text-gray-700 mb-1"&gt;Email&lt;/label&gt;&lt;input type="email" name="email" id="register-email" class="w-full p-2 border border-gray-300 rounded-md" required&gt;&lt;/div&gt;&lt;div class="mb-6"&gt;&lt;label for="register-password" class="block text-sm font-medium text-gray-700 mb-1"&gt;Contraseña&lt;/label&gt;&lt;input type="password" name="password" id="register-password" class="w-full p-2 border border-gray-300 rounded-md" required&gt;&lt;/div&gt;&lt;button type="submit" class="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-gray-800"&gt;Crear Cuenta&lt;/button&gt;&lt;/form&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="product-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4"&gt;&lt;div id="product-modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-4xl max-h-full overflow-y-auto relative"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="store-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4"&gt;&lt;div class="bg-white rounded-lg shadow-2xl w-full max-w-lg relative"&gt;&lt;button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800" data-modal="store-modal"&gt;&lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /&gt;&lt;/svg&gt;&lt;/button&gt;&lt;div id="store-modal-content" class="p-8"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="orders-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4"&gt;&lt;div class="bg-white rounded-lg shadow-2xl w-full max-w-lg relative p-8"&gt;&lt;button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800" data-modal="orders-modal"&gt;X&lt;/button&gt;&lt;h2 class="text-2xl font-bold mb-4"&gt;Mis Pedidos&lt;/h2&gt;&lt;p&gt;Aquí se mostraría una lista de pedidos anteriores.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="addresses-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4"&gt;&lt;div class="bg-white rounded-lg shadow-2xl w-full max-w-lg relative p-8"&gt;&lt;button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800" data-modal="addresses-modal"&gt;X&lt;/button&gt;&lt;h2 class="text-2xl font-bold mb-4"&gt;Mis Direcciones&lt;/h2&gt;&lt;p&gt;Aquí se mostraría un formulario para agregar/editar direcciones.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="password-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4"&gt;&lt;div class="bg-white rounded-lg shadow-2xl w-full max-w-lg relative p-8"&gt;&lt;button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800" data-modal="password-modal"&gt;X&lt;/button&gt;&lt;h2 class="text-2xl font-bold mb-4"&gt;Cambiar Contraseña&lt;/h2&gt;&lt;p&gt;Aquí se mostraría un formulario para cambiar la contraseña.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="wishlist-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden"&gt;&lt;div class="absolute inset-y-0 right-0 max-w-md w-full bg-white shadow-xl flex flex-col"&gt;&lt;div class="flex items-center justify-between p-4 border-b"&gt;&lt;h2 class="text-xl font-bold"&gt;Mi Lista de Deseos&lt;/h2&gt;&lt;button class="modal-close-btn p-2 rounded-full hover:bg-gray-200" data-modal="wishlist-modal"&gt;&lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /&gt;&lt;/svg&gt;&lt;/button&gt;&lt;/div&gt;&lt;div id="wishlist-items-container" class="flex-grow p-4 overflow-y-auto"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="cart-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 hidden"&gt;&lt;div class="absolute inset-y-0 right-0 max-w-md w-full bg-white shadow-xl flex flex-col"&gt;&lt;div id="cart-view"&gt;&lt;div class="flex items-center justify-between p-4 border-b"&gt;&lt;h2 class="text-xl font-bold"&gt;Tu Carrito&lt;/h2&gt;&lt;button class="modal-close-btn p-2 rounded-full hover:bg-gray-200" data-modal="cart-modal"&gt;&lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /&gt;&lt;/svg&gt;&lt;/button&gt;&lt;/div&gt;&lt;div id="cart-items-container" class="flex-grow p-4 overflow-y-auto"&gt;&lt;/div&gt;&lt;div class="p-4 border-t"&gt;&lt;div class="flex justify-between font-bold text-lg mb-4"&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;span id="cart-subtotal"&gt;$0.00&lt;/span&gt;&lt;/div&gt;&lt;button id="checkout-btn" class="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition-colors disabled:bg-gray-400"&gt;Proceder al Pago&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id="checkout-view" class="hidden h-full flex flex-col"&gt;&lt;div class="flex items-center p-4 border-b"&gt;&lt;button id="back-to-cart-btn" class="p-2 rounded-full hover:bg-gray-200 mr-2"&gt;&lt;svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /&gt;&lt;/svg&gt;&lt;/button&gt;&lt;h2 class="text-xl font-bold"&gt;Checkout&lt;/h2&gt;&lt;/div&gt;&lt;div class="p-4 overflow-y-auto flex-grow"&gt;&lt;h3 class="font-bold mb-4"&gt;Información de Envío&lt;/h3&gt;&lt;form&gt;&lt;input type="text" placeholder="Nombre completo" class="w-full p-2 border border-gray-300 rounded-md mb-3"&gt;&lt;input type="text" placeholder="Dirección" class="w-full p-2 border border-gray-300 rounded-md mb-3"&gt;&lt;div class="flex space-x-3"&gt;&lt;input type="text" placeholder="Ciudad" class="w-1/2 p-2 border border-gray-300 rounded-md mb-3"&gt;&lt;input type="text" placeholder="Código Postal" class="w-1/2 p-2 border border-gray-300 rounded-md mb-3"&gt;&lt;/div&gt;&lt;h3 class="font-bold mt-6 mb-4"&gt;Información de Pago&lt;/h3&gt;&lt;input type="text" placeholder="Número de tarjeta" class="w-full p-2 border border-gray-300 rounded-md mb-3"&gt;&lt;div class="flex space-x-3"&gt;&lt;input type="text" placeholder="MM/AA" class="w-1/2 p-2 border border-gray-300 rounded-md mb-3"&gt;&lt;input type="text" placeholder="CVC" class="w-1/2 p-2 border border-gray-300 rounded-md mb-3"&gt;&lt;/div&gt;&lt;/form&gt;&lt;/div&gt;&lt;div class="p-4 border-t"&gt;&lt;div class="flex justify-between font-bold text-lg mb-4"&gt;&lt;span&gt;Total&lt;/span&gt;&lt;span id="checkout-total"&gt;$0.00&lt;/span&gt;&lt;/div&gt;&lt;button id="pay-btn" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition-colors"&gt;Pagar Ahora&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- =========== JAVASCRIPT LOGIC =========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- MOCK DATA ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const products = [</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ id: 1, name: 'Zapatillas Velocity Air Runner', category: 'Hombre', price: 2899.99, image: 'https://placehold.co/400x400/F3F4F6/000000?text=Zapato+1', description: 'Ligeras y con una amortiguación superior, diseñadas para la velocidad y el confort en carreras largas.', inventory: [{size: '26', stock: 5}, {size: '27', stock: 0}, {size: '28', stock: 8}], isOnSale: false },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ id: 2, name: 'Tenis Velocity Urban Stride', category: 'Hombre', price: 2499.50, image: 'https://placehold.co/400x400/E5E7EB/000000?text=Zapato+2', description: 'El estilo urbano se une a la comodidad. Perfectos para el día a día con un diseño moderno y versátil.', inventory: [{size: '25', stock: 10}, {size: '26', stock: 3}, {size: '29', stock: 0}], isOnSale: true, oldPrice: 2799.50 },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ id: 3, name: 'Playera Dri-Fit Velocity', category: 'Mujer', price: 899.00, image: 'https://placehold.co/400x400/D1D5DB/000000?text=Ropa+1', description: 'Mantente seca y cómoda durante tus entrenamientos más intensos con nuestra tecnología de absorción de sudor.', inventory: [{size: 'XS', stock: 12}, {size: 'S', stock: 15}, {size: 'M', stock: 4}], isOnSale: false },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ id: 4, name: 'Leggings Velocity Flex', category: 'Mujer', price: 1399.00, image: 'https://placehold.co/400x400/9CA3AF/FFFFFF?text=Ropa+2', description: 'Flexibilidad y soporte en un diseño elegante. Se mueven contigo, ofreciendo total libertad de movimiento.', inventory: [{size: 'S', stock: 7}, {size: 'M', stock: 0}, {size: 'L', stock: 9}], isOnSale: false },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>{ id: 5, name: 'Sudadera Tech Velocity', category: 'Unisex', price: 1599.00, image: 'https://placehold.co/400x400/6B7280/FFFFFF?text=Ropa+3', description: 'Tejido térmico ligero que te mantiene abrigado sin añadir peso. Ideal para antes y después de entrenar.', inventory: [{size: 'S', stock: 2}, {size: 'M', stock: 3}, {size: 'L', stock: 1}], isOnSale: true, oldPrice: 1999.00 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const mockUser = { email: 'usuario@correo.com', password: 'password123', name: 'Alex Doe', points: 1500 };</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const users = [mockUser];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- STATE ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let cart = JSON.parse(localStorage.getItem('velocityCart')) || [];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let wishlist = JSON.parse(localStorage.getItem('velocityWishlist')) || [];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let currentUser = JSON.parse(sessionStorage.getItem('velocityUser')) || null;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let currentFilters = { searchTerm: '', sortBy: 'default', category: 'all', saleOnly: false };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- DOM SELECTORS ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const dom = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>body: document.body,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>productGridNews: document.getElementById('product-grid-news'), productGridMen: document.getElementById('product-grid-men'), productGridWomen: document.getElementById('product-grid-women'), productGridSale: document.getElementById('product-grid-sale'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>productModal: document.getElementById('product-modal'), productModalContent: document.getElementById('product-modal-content'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>authModal: document.getElementById('auth-modal'), cartModal: document.getElementById('cart-modal'), storeModal: document.getElementById('store-modal'), storeModalContent: document.getElementById('store-modal-content'), wishlistModal: document.getElementById('wishlist-modal'), wishlistItemsContainer: document.getElementById('wishlist-items-container'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>userIconBtn: document.getElementById('user-icon-btn'), userDropdown: document.getElementById('user-dropdown'), dropdownUserName: document.getElementById('dropdown-user-name'), dropdownUserEmail: document.getElementById('dropdown-user-email'), dropdownUserPoints: document.getElementById('dropdown-user-points'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>logoutBtn: document.getElementById('logout-btn'), myAccountBtn: document.getElementById('my-account-btn'), myAccountSubmenu: document.getElementById('my-account-submenu'), accountArrow: document.getElementById('account-arrow'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>loginForm: document.getElementById('login-form'), loginError: document.getElementById('login-error'), registerForm: document.getElementById('register-form'), registerError: document.getElementById('register-error'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>loginTabBtn: document.getElementById('login-tab-btn'), registerTabBtn: document.getElementById('register-tab-btn'), loginTabContent: document.getElementById('login-tab-content'), registerTabContent: document.getElementById('register-tab-content'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>searchBar: document.getElementById('search-bar'), sortBySelect: document.getElementById('sort-by'), filterBtns: document.querySelectorAll('.filter-btn'), resetFiltersBtn: document.getElementById('reset-filters'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>originalSections: document.getElementById('original-sections'), searchResultsSection: document.getElementById('search-results-section'), searchResultsGrid: document.getElementById('search-results-grid'), searchResultsTitle: document.getElementById('search-results-title'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>openWishlistBtn: document.getElementById('open-wishlist-btn'), openCartBtn: document.getElementById('open-cart-btn'), checkoutBtn: document.getElementById('checkout-btn'), backToCartBtn: document.getElementById('back-to-cart-btn'), payBtn: document.getElementById('pay-btn'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cartCounter: document.getElementById('cart-counter'), wishlistCounter: document.getElementById('wishlist-counter'), cartItemsContainer: document.getElementById('cart-items-container'), cartSubtotalEl: document.getElementById('cart-subtotal'), checkoutTotalEl: document.getElementById('checkout-total'),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cartView: document.getElementById('cart-view'), checkoutView: document.getElementById('checkout-view'), toastContainer: document.getElementById('toast-container'),</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- TOAST NOTIFICATIONS ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const showToast = (message, type = 'success') =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const toast = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>toast.className = `toast show p-4 rounded-lg shadow-lg text-white ${type === 'success' ? 'bg-green-500' : 'bg-red-500'}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>toast.textContent = message;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.toastContainer.appendChild(toast);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>toast.classList.remove('show');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>toast.classList.add('hide');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>toast.addEventListener('animationend', () =&gt; toast.remove());</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, 3000);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- MODAL CONTROLS ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const openModal = (modal) =&gt; { modal.classList.remove('hidden'); modal.classList.add('flex'); dom.body.classList.add('modal-open'); };</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const closeModal = (modal) =&gt; { modal.classList.add('hidden'); modal.classList.remove('flex'); if (!document.querySelector('.modal.flex')) { dom.body.classList.remove('modal-open'); } };</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- RENDER &amp; UI FUNCTIONS ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const renderProducts = (productList, targetGrid) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!targetGrid) return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>targetGrid.innerHTML = productList.length &gt; 0 ? productList.map(product =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const inWishlist = wishlist.includes(product.id);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="product-card bg-gray-50 rounded-lg overflow-hidden group" data-product-id="${product.id}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative bg-gray-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="absolute top-2 right-2 z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button class="wishlist-btn p-2 bg-white/70 rounded-full hover:bg-white ${inWishlist ? 'wishlist-btn-active' : ''}" data-product-id="${product.id}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.5l1.318-1.182a4.5 4.5 0 116.364 6.364L12 21.086l-7.682-7.182a4.5 4.5 0 010-6.364z" /&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="product-image-link cursor-pointer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>${product.isOnSale ? '&lt;div class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded"&gt;OFERTA&lt;/div&gt;' : ''}</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;img src="${product.image}" onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/999999?text=Error';" alt="${product.name}" class="w-full h-64 object-cover group-hover:opacity-90 transition-opacity"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="font-bold text-lg text-gray-800 truncate"&gt;${product.name}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-500 text-sm"&gt;${product.category}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-baseline mt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="font-semibold text-lg ${product.isOnSale ? 'text-red-600' : 'text-gray-900'}"&gt;$${product.price.toFixed(2)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>${product.isOnSale ? `&lt;p class="ml-2 text-sm text-gray-500 line-through"&gt;$${product.oldPrice.toFixed(2)}&lt;/p&gt;` : ''}</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}).join('') : '&lt;p class="col-span-full text-center text-gray-500"&gt;No hay productos en esta categoría.&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const updateStockStatus = (product, selectedSize) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const addToCartBtn = document.getElementById('add-to-cart-btn');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const stockStatusEl = document.getElementById('stock-status');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const inventoryItem = product.inventory.find(item =&gt; item.size === selectedSize);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const stock = inventoryItem ? inventoryItem.stock : 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (stock &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>addToCartBtn.disabled = false; addToCartBtn.textContent = 'Agregar al Carrito'; stockStatusEl.textContent = `${stock} disponibles`; stockStatusEl.className = 'text-sm font-semibold text-green-600';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>addToCartBtn.disabled = true; addToCartBtn.textContent = 'Agotado'; stockStatusEl.textContent = 'Agotado'; stockStatusEl.className = 'text-sm font-semibold text-red-600';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const renderProductModal = (productId) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const product = products.find(p =&gt; p.id === productId); if (!product) return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.productModalContent.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="modal-close-btn absolute top-4 right-4 text-gray-500 hover:text-gray-800" data-modal="product-modal"&gt;&lt;svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /&gt;&lt;/svg&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid md:grid-cols-2 gap-8 p-6 md:p-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;&lt;img src="${product.image.replace('400x400', '600x600')}" onerror="this.onerror=null;this.src='https://placehold.co/600x600/cccccc/999999?text=Error';" alt="${product.name}" class="w-full rounded-lg"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h2 class="text-3xl font-bold mb-2"&gt;${product.name}&lt;/h2&gt; &lt;p class="text-gray-500 mb-4"&gt;${product.category}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="flex items-baseline mb-4"&gt; &lt;p class="text-2xl font-semibold ${product.isOnSale ? 'text-red-600' : 'text-gray-900'}"&gt;$${product.price.toFixed(2)}&lt;/p&gt; ${product.isOnSale ? `&lt;p class="ml-3 text-lg text-gray-500 line-through"&gt;$${product.oldPrice.toFixed(2)}&lt;/p&gt;` : ''} &lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-gray-600 mb-6"&gt;${product.description}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex justify-between items-center mb-2"&gt;&lt;label for="size-select" class="block text-sm font-medium text-gray-700"&gt;Seleccionar Talla:&lt;/label&gt;&lt;span id="stock-status" class="text-sm font-semibold"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;select id="size-select" class="w-full p-2 border border-gray-300 rounded-md"&gt;${product.inventory.map(item =&gt; `&lt;option value="${item.size}"&gt;${item.size}&lt;/option&gt;`).join('')}&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="add-to-cart-btn" class="w-full bg-gray-900 text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition-colors disabled:bg-gray-400"&gt;Agregar al Carrito&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="check-store-btn" class="w-full mt-2 bg-white border border-gray-300 text-gray-800 font-bold py-3 rounded-lg hover:bg-gray-100 transition-colors"&gt;Verificar disponibilidad en tienda&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>openModal(dom.productModal);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const sizeSelect = document.getElementById('size-select');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>sizeSelect.addEventListener('change', (e) =&gt; updateStockStatus(product, e.target.value));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updateStockStatus(product, sizeSelect.value);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('add-to-cart-btn').addEventListener('click', () =&gt; addProductToCart(product.id, sizeSelect.value));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('check-store-btn').addEventListener('click', () =&gt; checkStoreAvailability(product, sizeSelect.value));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const checkStoreAvailability = (product, size) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const stores = [{ name: 'Velocity Polanco', stock: Math.floor(Math.random() * 5) }, { name: 'Velocity Santa Fe', stock: Math.floor(Math.random() * 5) }, { name: 'Velocity Condesa', stock: Math.floor(Math.random() * 5) }];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.storeModalContent.innerHTML = `&lt;h3 class="text-xl font-bold mb-2"&gt;Disponibilidad en Tiendas&lt;/h3&gt;&lt;p class="mb-4 text-sm text-gray-600"&gt;Mostrando para: ${product.name} (Talla: ${size})&lt;/p&gt;&lt;ul class="space-y-3"&gt;${stores.map(store =&gt; `&lt;li class="flex justify-between items-center p-3 rounded-md ${store.stock &gt; 0 ? 'bg-green-50' : 'bg-red-50'}"&gt;&lt;span&gt;${store.name}&lt;/span&gt;${store.stock &gt; 0 ? `&lt;span class="font-semibold text-green-700"&gt;En Stock&lt;/span&gt;` : `&lt;span class="font-semibold text-red-700"&gt;Agotado&lt;/span&gt;`}&lt;/li&gt;`).join('')}&lt;/ul&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>openModal(dom.storeModal);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const renderCart = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const subtotal = cart.reduce((sum, item) =&gt; sum + item.price * item.quantity, 0);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.checkoutBtn.disabled = subtotal &lt;= 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.cartItemsContainer.innerHTML = cart.length === 0 ? '&lt;p class="text-center text-gray-500 py-12"&gt;Tu carrito está vacío.&lt;/p&gt;' : cart.map(item =&gt; `</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex items-start space-x-4 py-4 border-b"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-md flex-shrink-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex-grow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="font-semibold text-sm"&gt;${item.name}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-500 text-xs"&gt;Talla: ${item.size}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="font-bold text-sm mt-1"&gt;$${(item.price * item.quantity).toFixed(2)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex items-center space-x-2 mt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;button class="cart-quantity-btn p-1 rounded-full bg-gray-200 hover:bg-gray-300" data-product-id="${item.id}" data-size="${item.size}" data-change="-1"&gt;-&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;span class="w-8 text-center text-sm"&gt;${item.quantity}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;button class="cart-quantity-btn p-1 rounded-full bg-gray-200 hover:bg-gray-300" data-product-id="${item.id}" data-size="${item.size}" data-change="1"&gt;+&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="cart-remove-btn p-2 rounded-full text-gray-400 hover:text-red-600" data-product-id="${item.id}" data-size="${item.size}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"&gt;&lt;path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;`).join('');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updateCartSummary();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const updateCartSummary = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const totalItems = cart.reduce((sum, item) =&gt; sum + item.quantity, 0);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const subtotal = cart.reduce((sum, item) =&gt; sum + item.price * item.quantity, 0);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.cartCounter.innerText = totalItems;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.cartSubtotalEl.innerText = `$${subtotal.toFixed(2)}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.checkoutBtn.disabled = subtotal &lt;= 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>localStorage.setItem('velocityCart', JSON.stringify(cart));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const updateHeaderUI = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (currentUser) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.dropdownUserName.textContent = currentUser.name;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.dropdownUserEmail.textContent = currentUser.email;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.dropdownUserPoints.textContent = currentUser.points.toLocaleString('es-MX');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.userDropdown.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const applyFiltersAndSearch = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let filteredProducts = [...products];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (currentFilters.searchTerm) { filteredProducts = filteredProducts.filter(p =&gt; p.name.toLowerCase().includes(currentFilters.searchTerm)); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (currentFilters.category !== 'all') { filteredProducts = filteredProducts.filter(p =&gt; p.category === currentFilters.category || (p.category === 'Unisex' &amp;&amp; (currentFilters.category === 'Hombre' || currentFilters.category === 'Mujer'))); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (currentFilters.saleOnly) { filteredProducts = filteredProducts.filter(p =&gt; p.isOnSale); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>switch (currentFilters.sortBy) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>case 'price-asc': filteredProducts.sort((a, b) =&gt; a.price - b.price); break;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>case 'price-desc': filteredProducts.sort((a, b) =&gt; b.price - a.price); break;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const isFiltering = currentFilters.searchTerm || currentFilters.category !== 'all' || currentFilters.saleOnly || currentFilters.sortBy !== 'default';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (isFiltering) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.originalSections.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.searchResultsSection.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.searchResultsTitle.textContent = `Resultados (${filteredProducts.length})`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>renderProducts(filteredProducts, dom.searchResultsGrid);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.originalSections.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.searchResultsSection.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>renderProducts(products, dom.productGridNews);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>renderProducts(products.filter(p =&gt; p.category === 'Hombre' || p.category === 'Unisex'), dom.productGridMen);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>renderProducts(products.filter(p =&gt; p.category === 'Mujer' || p.category === 'Unisex'), dom.productGridWomen);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>renderProducts(products.filter(p =&gt; p.isOnSale), dom.productGridSale);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const resetFilters = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentFilters = { searchTerm: '', sortBy: 'default', category: 'all', saleOnly: false };</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.searchBar.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.sortBySelect.value = 'default';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.filterBtns.forEach(btn =&gt; btn.classList.remove('filter-btn-active'));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.querySelector('.filter-btn[data-filter="category"][data-value="all"]').classList.add('filter-btn-active');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.querySelector('.filter-btn[data-filter="sale"]').classList.remove('filter-btn-active');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>applyFiltersAndSearch();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const login = (email, password) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const user = users.find(u =&gt; u.email === email &amp;&amp; u.password === password);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (user) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>currentUser = user; sessionStorage.setItem('velocityUser', JSON.stringify(currentUser)); updateHeaderUI(); closeModal(dom.authModal); dom.loginError.classList.add('hidden'); dom.loginForm.reset(); showToast(`Bienvenido de nuevo, ${user.name}!`);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>dom.loginError.textContent = 'Email o contraseña incorrectos.'; dom.loginError.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const register = (name, email, password) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (users.find(u =&gt; u.email === email)) { dom.registerError.textContent = 'Este correo ya está registrado.'; dom.registerError.classList.remove('hidden'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const newUser = { name, email, password, points: 0 };</p>
+<p class="p1"><span class="Apple-converted-space">                </span>users.push(newUser); login(email, password); showToast(`¡Cuenta creada! Bienvenido, ${name}`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const logout = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentUser = null; sessionStorage.removeItem('velocityUser'); dom.userDropdown.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const addProductToCart = (productId, selectedSize) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const product = products.find(p =&gt; p.id === productId);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const inventoryItem = product.inventory.find(item =&gt; item.size === selectedSize);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const stock = inventoryItem ? inventoryItem.stock : 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const existingItemInCart = cart.find(item =&gt; item.id === productId &amp;&amp; item.size === selectedSize);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const quantityInCart = existingItemInCart ? existingItemInCart.quantity : 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (quantityInCart &gt;= stock) { showToast('No hay más existencias para este producto.', 'error'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (existingItemInCart) { existingItemInCart.quantity++; } else { cart.push({ ...product, size: selectedSize, quantity: 1 }); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>closeModal(dom.productModal); renderCart(); openModal(dom.cartModal); showToast('Producto añadido al carrito');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const updateCartItemQuantity = (productId, size, change) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const itemIndex = cart.findIndex(item =&gt; item.id === productId &amp;&amp; item.size === size);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (itemIndex &gt; -1) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (change &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const product = products.find(p =&gt; p.id === productId); const inventoryItem = product.inventory.find(inv =&gt; inv.size === size); const stock = inventoryItem ? inventoryItem.stock : 0;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (cart[itemIndex].quantity &gt;= stock) { showToast('No hay más existencias.', 'error'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>cart[itemIndex].quantity += change;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (cart[itemIndex].quantity &lt;= 0) { cart.splice(itemIndex, 1); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>renderCart();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const removeCartItem = (productId, size) =&gt; { cart = cart.filter(item =&gt; !(item.id === productId &amp;&amp; item.size === size)); renderCart(); };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const showCheckoutView = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const subtotal = cart.reduce((sum, item) =&gt; sum + item.price * item.quantity, 0); if (subtotal &lt;= 0) return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.checkoutTotalEl.innerText = `$${subtotal.toFixed(2)}`; dom.cartView.classList.add('hidden'); dom.checkoutView.classList.remove('hidden'); dom.checkoutView.classList.add('flex', 'flex-col');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const showCartView = () =&gt; { dom.checkoutView.classList.add('hidden'); dom.checkoutView.classList.remove('flex', 'flex-col'); dom.cartView.classList.remove('hidden'); renderCart(); };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const handlePayment = () =&gt; { showToast('¡Gracias por tu compra!'); cart = []; closeModal(dom.cartModal); setTimeout(showCartView, 300); updateCartSummary(); };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const toggleWishlist = (productId) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const index = wishlist.indexOf(productId);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (index &gt; -1) { wishlist.splice(index, 1); showToast('Eliminado de tu lista de deseos', 'error'); } else { wishlist.push(productId); showToast('Añadido a tu lista de deseos'); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>localStorage.setItem('velocityWishlist', JSON.stringify(wishlist)); updateWishlistCounter(); applyFiltersAndSearch();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const updateWishlistCounter = () =&gt; { dom.wishlistCounter.textContent = wishlist.length; };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const renderWishlistModal = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const wishlistProducts = products.filter(p =&gt; wishlist.includes(p.id));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dom.wishlistItemsContainer.innerHTML = wishlistProducts.length &gt; 0 ? wishlistProducts.map(item =&gt; `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center space-x-4 py-4 border-b"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-md flex-shrink-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex-grow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="font-semibold text-sm"&gt;${item.name}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="font-bold text-sm mt-1"&gt;$${item.price.toFixed(2)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="wishlist-remove-btn p-2 rounded-full text-gray-400 hover:text-red-600 hover:bg-red-50" data-product-id="${item.id}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"&gt;&lt;path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;`).join('') : '&lt;p class="text-center text-gray-500 py-12"&gt;Tu lista de deseos está vacía.&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>openModal(dom.wishlistModal);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- EVENT LISTENERS ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.addEventListener('click', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!dom.userIconBtn.contains(e.target) &amp;&amp; !dom.userDropdown.contains(e.target)) { dom.userDropdown.classList.add('hidden'); dom.myAccountSubmenu.classList.add('hidden'); dom.accountArrow.classList.remove('rotate-90'); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const accountLink = e.target.closest('#my-account-submenu a');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (accountLink) { e.preventDefault(); openModal(document.getElementById(accountLink.dataset.modal)); dom.userDropdown.classList.add('hidden'); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const closeButton = e.target.closest('.modal-close-btn');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (closeButton) { closeModal(document.getElementById(closeButton.dataset.modal)); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (e.target.classList.contains('modal')) { closeModal(e.target); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const productLink = e.target.closest('.product-image-link');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (productLink) { renderProductModal(parseInt(productLink.closest('.product-card').dataset.productId)); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const wishlistBtn = e.target.closest('.wishlist-btn');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (wishlistBtn) { toggleWishlist(parseInt(wishlistBtn.dataset.productId)); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const wishlistRemoveBtn = e.target.closest('.wishlist-remove-btn');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (wishlistRemoveBtn) { toggleWishlist(parseInt(wishlistRemoveBtn.dataset.productId)); renderWishlistModal(); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const cartQtyBtn = e.target.closest('.cart-quantity-btn');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (cartQtyBtn) { updateCartItemQuantity(parseInt(cartQtyBtn.dataset.productId), cartQtyBtn.dataset.size, parseInt(cartQtyBtn.dataset.change)); }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const cartRemoveBtn = e.target.closest('.cart-remove-btn');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (cartRemoveBtn) { removeCartItem(parseInt(cartRemoveBtn.dataset.productId), cartRemoveBtn.dataset.size); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.userIconBtn.addEventListener('click', () =&gt; { if (currentUser) { dom.userDropdown.classList.toggle('hidden'); } else { openModal(dom.authModal); } });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.logoutBtn.addEventListener('click', () =&gt; { logout(); showToast('Sesión cerrada'); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.myAccountBtn.addEventListener('click', () =&gt; { dom.myAccountSubmenu.classList.toggle('hidden'); dom.accountArrow.classList.toggle('rotate-90'); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.loginForm.addEventListener('submit', (e) =&gt; { e.preventDefault(); login(e.target.elements.email.value, e.target.elements.password.value); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.registerForm.addEventListener('submit', (e) =&gt; { e.preventDefault(); register(e.target.elements.name.value, e.target.elements.email.value, e.target.elements.password.value); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.loginTabBtn.addEventListener('click', () =&gt; { dom.loginTabContent.classList.remove('hidden'); dom.registerTabContent.classList.add('hidden'); dom.loginTabBtn.classList.add('tab-btn-active'); dom.registerTabBtn.classList.remove('tab-btn-active'); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.registerTabBtn.addEventListener('click', () =&gt; { dom.registerTabContent.classList.remove('hidden'); dom.loginTabContent.classList.add('hidden'); dom.registerTabBtn.classList.add('tab-btn-active'); dom.loginTabBtn.classList.remove('tab-btn-active'); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.openWishlistBtn.addEventListener('click', renderWishlistModal);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.openCartBtn.addEventListener('click', () =&gt; { renderCart(); openModal(dom.cartModal); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.checkoutBtn.addEventListener('click', showCheckoutView);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.backToCartBtn.addEventListener('click', showCartView);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.payBtn.addEventListener('click', handlePayment);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.addEventListener('keydown', (e) =&gt; { if (e.key === 'Escape') { document.querySelectorAll('.modal').forEach(m =&gt; closeModal(m)); } });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.searchBar.addEventListener('input', (e) =&gt; { currentFilters.searchTerm = e.target.value.toLowerCase(); applyFiltersAndSearch(); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.sortBySelect.addEventListener('change', (e) =&gt; { currentFilters.sortBy = e.target.value; applyFiltersAndSearch(); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.filterBtns.forEach(btn =&gt; { btn.addEventListener('click', () =&gt; { const filterType = btn.dataset.filter; const value = btn.dataset.value; if (filterType === 'category') { currentFilters.category = value; document.querySelectorAll('.filter-btn[data-filter="category"]').forEach(b =&gt; b.classList.remove('filter-btn-active')); btn.classList.add('filter-btn-active'); } else if (filterType === 'sale') { currentFilters.saleOnly = !currentFilters.saleOnly; btn.classList.toggle('filter-btn-active'); } applyFiltersAndSearch(); }); });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>dom.resetFiltersBtn.addEventListener('click', resetFilters);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- INITIALIZATION ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const initializeApp = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>applyFiltersAndSearch();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updateCartSummary();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updateWishlistCounter();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updateHeaderUI();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.querySelector('.filter-btn[data-filter="category"][data-value="all"]').classList.add('filter-btn-active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>initializeApp();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
